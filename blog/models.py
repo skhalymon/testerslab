@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
@@ -16,6 +17,7 @@ class Post(models.Model):
     body = models.TextField()
     created = models.DateTimeField()
     categories = models.ManyToManyField("Category")
+    tags = TaggableManager()
     published = models.BooleanField()
 
     def get_categories(self):
