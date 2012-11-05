@@ -1,5 +1,13 @@
 from django.contrib import admin
 from blog.models import Post, Category
 
-admin.site.register(Post)
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created', 'list_categories')
+    list_filter = ['created', 'categories']
+    search_fields = ['title']
+    date_hierarchy = 'created'
+
+
+admin.site.register(Post, PostAdmin)
 admin.site.register(Category)
