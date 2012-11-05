@@ -24,6 +24,7 @@ class Post(models.Model):
 
     def is_published(self):
         return self.published
+    is_published.boolean = True
 
     def __unicode__(self):
         return self.title
