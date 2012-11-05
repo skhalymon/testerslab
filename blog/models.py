@@ -16,9 +16,13 @@ class Post(models.Model):
     body = models.TextField()
     created = models.DateTimeField()
     categories = models.ManyToManyField("Category")
+    published = models.BooleanField()
 
     def list_categories(self):
         return " | ".join([s.name for s in self.categories.all()])
+
+    def is_published(self):
+        return self.published
 
     def __unicode__(self):
         return self.title
