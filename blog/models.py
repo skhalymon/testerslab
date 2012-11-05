@@ -18,8 +18,9 @@ class Post(models.Model):
     categories = models.ManyToManyField("Category")
     published = models.BooleanField()
 
-    def list_categories(self):
+    def get_categories(self):
         return " | ".join([s.name for s in self.categories.all()])
+    get_categories.short_description = "Categories"
 
     def is_published(self):
         return self.published
