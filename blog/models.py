@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 
 
@@ -14,7 +15,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    body = models.TextField()
+    content = RichTextField(config_name='ckeditor')
     created = models.DateTimeField()
     categories = models.ManyToManyField("Category")
     tags = TaggableManager()

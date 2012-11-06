@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '../dbs/blog.db',                      # Or path to database file if using sqlite3.
+        'NAME': 'blog.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'ckeditor',
     'taggit',
     'blog',
 )
@@ -148,4 +149,11 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+CKEDITOR_UPLOAD_PATH = "/home/danu/projects/media"
+CKEDITOR_CONFIGS = {
+            'ckeditor': {
+                'toolbar': 'Basic',
+            },
 }
