@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for post in latest_posts %}
+
+<h2>{{  post.title  }}</h2>
+
+<div class="post_meta">
+    {{  post.created }}
+
+<div class="post_content">
+    {{ post.content|safe }}
+</div>
+
+<div class="post_tags">
+    {% for t in post.tags.all %}
+    {{ t }}
+    {% endfor %}
+</div>
+
+{% endfor %}
+
+{% endblock %}
