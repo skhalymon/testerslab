@@ -16,7 +16,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField(config_name='ckeditor')
-    created = models.DateTimeField()
+    created = models.DateField()
     categories = models.ManyToManyField("Category")
     tags = TaggableManager()
     published = models.BooleanField()
