@@ -151,7 +151,7 @@ LOGGING = {
     }
 }
 
-CKEDITOR_UPLOAD_PATH = "/home/dan/media"
+CKEDITOR_UPLOAD_PATH = "/home/danu/proj/my-blog/static/media"
 CKEDITOR_CONFIGS = {
             'ckeditor': {
                 'toolbar': 'Basic',
