@@ -5,7 +5,7 @@ from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     def __unicode__(self):
         return self.name
@@ -15,12 +15,12 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     content = RichTextField(config_name='ckeditor')
     created = models.DateTimeField()
     categories = models.ManyToManyField("Category")
     tags = TaggableManager()
-    slug = AutoSlugField(populate_from="title")
+    slug = AutoSlugField(populate_from="title", unique=True)
     published = models.BooleanField()
 
     def get_categories(self):
