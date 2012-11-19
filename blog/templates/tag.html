@@ -6,7 +6,7 @@
 
 {% for post in posts %}
 
-<p>{{ post.created|date:"M d, Y" }}: <a href="/blog/{{post.id}}">{{ post.title }}</a></p>
+<p>{{ post.created|date:"M d, Y" }}: <a href="{% url blog.views.post post.slug %}">{{ post.title }}</a></p>
 
 {% endfor %}
 
