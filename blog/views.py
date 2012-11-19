@@ -11,3 +11,19 @@ def post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     context = {'post': post}
     return render(request, 'post.html', context)
+
+def tag(request, tag):
+    posts = Post.objects.filter(tags__name=tag)
+    context = {
+        'posts': posts,
+        'tag': tag,
+    }
+    return render(request, 'tag.html', context)
+
+def category(request, cat):
+    posts = Post.objects.filter(categories__name=cat)
+    context = {
+        'posts': posts,
+        'cat': cat,
+    }
+    return render(request, 'category.html', context)

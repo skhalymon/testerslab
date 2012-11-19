@@ -5,7 +5,7 @@
 <h2><a href="/blog/{{post.id}}">{{ post.title }}</a></h2>
 
 <div class="post_meta">
-  on {{ post.created }}
+  on {{ post.created|date:"M d, Y" }}
 </div>
 
 <div class="post_body">
