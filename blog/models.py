@@ -1,5 +1,4 @@
 from django.db import models
-from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 
@@ -20,7 +19,7 @@ class Post(models.Model):
     created = models.DateTimeField()
     categories = models.ManyToManyField("Category")
     tags = TaggableManager()
-    slug = AutoSlugField(populate_from="title", unique=True)
+    slug = models.SlugField(unique=True)
     published = models.BooleanField()
 
     def get_categories(self):
