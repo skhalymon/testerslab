@@ -2,10 +2,15 @@
 
 {% block content %}
 
-{% for post in latest_posts %}
+<div class="hero-unit">
+  <h1>Hello, world!</h1>
+</div>
 
 <div class="row">
   <div class="span9">
+
+{% for post in latest_posts %}
+
     <h2><a href={% url blog.views.post post.slug %}>{{ post.title }}</a></h2>
       <p>on {{ post.created|date:"M d, Y" }}</p>
       <p>{{ post.content|safe }}</p>
@@ -28,9 +33,14 @@
         </p>
     </div>
     {% if not forloop.last %}<hr>{% endif %}
-  </div>
-</div>
 
 {% endfor %}
+
+  </div>
+  <div class="span3">
+    <h2>Archive</h2>
+    <p>lorem ipsum dolor</p>
+  </div>
+</div>
 
 {% endblock %}

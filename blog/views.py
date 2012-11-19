@@ -27,3 +27,10 @@ def category(request, cat):
         'cat': cat,
     }
     return render(request, 'category.html', context)
+
+def archive(request):
+    all_posts = Post.objects.filter(published=True).order_by('-created')
+    context = {
+        'all_posts': all_posts,
+    }
+    return render(request, 'archive.html', context)

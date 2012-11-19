@@ -33,11 +33,30 @@
   <body>
 
     <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Hello, world!</h1>
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="">
+              Test
+            </a>
+            <ul class="nav">
+              <li>
+                <a href="{% url blog.views.archive %}">Archive</a>
+              </li>
+              <li>
+                <a href="#">
+                  Link 2
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Link 3
+                </a>
+              </li>
+          </ul>
+        </div>
       </div>
+    </div>
 
         {% block content %}{% endblock %}
       <hr>
