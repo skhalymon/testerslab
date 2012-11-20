@@ -2,12 +2,38 @@
 
 {% block content %}
 
-<h2>Posts tagged: {{tag}}</h2>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6 page-header">
+      <h2 class="muted">Posts tagged: {{tag}}</h2>
+    </div>
+  </div>
+</div>
 
-{% for post in posts %}
 
-<p>{{ post.created|date:"M d, Y" }}: <a href="{% url post post.slug %}">{{ post.title }}</a></p>
-
-{% endfor %}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="well">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><i class="icon-calendar"></i>Date</th>
+              <th>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in posts %}
+            <tr>
+              <td>{{ post.created|date:"M d, Y" }}</td>
+              <td><a href="{% url post post.slug %}">{{ post.title }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
