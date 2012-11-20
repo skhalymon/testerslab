@@ -12,7 +12,7 @@
 {% for post in latest_posts %}
 
     <h2><a href={% url post post.slug %}>{{ post.title }}</a></h2>
-      <p class="muted">on {{ post.created|date:"M d, Y" }}</p>
+    <p class="muted">on {{ post.created|date:"M d, Y" }}, <i class="icon-user"></i> by {{ post.author }}</p>
       <p>{{ post.content|safe }}</p>
         <p>
           <i class="icon-tags"></i>
