@@ -2,6 +2,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 
+from django.contrib.auth.models import User
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -20,6 +22,7 @@ class Post(models.Model):
     categories = models.ManyToManyField("Category")
     tags = TaggableManager()
     slug = models.SlugField(unique=True)
+    author = models.ForeignKey(User)
     published = models.BooleanField()
 
     def get_categories(self):
