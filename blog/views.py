@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 from blog.models import Post
 
 
@@ -34,3 +35,23 @@ def archive(request):
         'all_posts': all_posts,
     }
     return render(request, 'archive.html', context)
+
+def search(request):
+    errors = []
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            errors.append('Enter a search term')
+        elif len(q) < 3:
+            errors.append('Enter minimum 3 characters')
+        else:
+            results = Post.objects.filter(
+                Q(title__icontains=q) |
+                Q(content__icontains=q)
+            ).order_by('created')
+            context = {
+                'results': results,
+                'q': q,
+            }
+            return render(request, 'results.html', context)
+    return render(request, 'blog.html', {'errors': errors})

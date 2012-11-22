@@ -35,10 +35,17 @@
   </div>
   <div class="span3 well">
     <h2>Search</h2>
-    <form class="form-search">
-    <p>
-      <input type="text" class="input-large">
-    </p>
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="{% url search %}" method="get">
+      <p>
+        <input type="text" class="input-large" name="q">
+      </p>
       <button type="submit" class="btn">Search</button>
     </form>
   </div>

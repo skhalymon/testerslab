@@ -8,6 +8,11 @@ urlpatterns = patterns('blog.views',
         name='index'
     ),
     url(
+        r'^search/$',
+        'search',
+        name='search'
+    ),
+    url(
         r'^archive/$',
         'archive',
         name='archive'
