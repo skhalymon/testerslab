@@ -55,7 +55,8 @@ def search(request):
                 reduce(operator.and_, (
                     Q(title__icontains=q) for q in query)) |
                 reduce(operator.and_, (
-                    Q(content__icontains=q) for q in query))
+                    Q(content__icontains=q) for q in query)),
+                published=True,
             ).order_by('created').distinct()
             context = {
                 'query_results': query_results,
