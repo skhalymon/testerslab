@@ -1,3 +1,5 @@
+import operator
+
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from blog.models import Post
@@ -39,19 +41,26 @@ def archive(request):
 def search(request):
     errors = []
     if 'q' in request.GET:
-        q = request.GET['q']
-        if not q:
-            errors.append('Enter a search term')
-        elif len(q) < 3:
+        query = request.GET['q']
+        query = handle_keywords(query)
+        if not query:
             errors.append('Enter minimum 3 characters')
         else:
-            results = Post.objects.filter(
-                Q(title__icontains=q) |
-                Q(content__icontains=q)
-            ).order_by('created')
+            query_results = Post.objects.filter(
+                reduce(operator.and_, (
+                    Q(title__icontains=q) for q in query)) |
+                reduce(operator.and_, (
+                    Q(content__icontains=q) for q in query))
+            ).order_by('created').distinct()
             context = {
-                'results': results,
-                'q': q,
+                'query_results': query_results,
             }
             return render(request, 'results.html', context)
     return render(request, 'blog.html', {'errors': errors})
+
+def handle_keywords(keywords):
+    if (
+        keywords.startswith('"') and keywords.endswith('"')) or (
+            keywords.startswith("'") and keywords.endswith("'")):
+        return [keywords[1:-1]]
+    return set(t for t in keywords.split(" ") if len(t) >= 3)
