@@ -1,6 +1,8 @@
 import operator
 
 from django.shortcuts import render, get_object_or_404
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 from django.db.models import Q
 from blog.models import Post
 
@@ -71,3 +73,21 @@ def handle_keywords(keywords):
             keywords.startswith("'") and keywords.endswith("'")):
         return [keywords[1:-1]]
     return set(t for t in keywords.split(" ") if len(t) >= 3)
+
+
+class LatestEntries(Feed):
+    title = "xxx"
+    link = "/blog/feed/"
+    description = " xxxxxxxx "
+
+    def items(self):
+        return Post.objects.filter(published=True).order_by('-created')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.content
+
+    def item_link(self, item):
+        return reverse('post', args=[item.slug])

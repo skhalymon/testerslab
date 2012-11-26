@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, url
+from blog.views import LatestEntries
 
 
 urlpatterns = patterns('blog.views',
@@ -16,6 +17,10 @@ urlpatterns = patterns('blog.views',
         r'^archive/$',
         'archive',
         name='archive'
+    ),
+    url(
+        r'^feed/$',
+        LatestEntries()
     ),
     url(
         r'^tag/(?P<tag>\w+)/$',
