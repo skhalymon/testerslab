@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'taggit',
     'blog',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
