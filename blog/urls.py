@@ -28,7 +28,7 @@ urlpatterns = patterns('blog.views',
         name='tag'
     ),
     url(
-        r'^category/(?P<cat>\w+)/$',
+        r'^category/(?P<slug>[^\.]+)/$',
         'category',
         name='category'
     ),

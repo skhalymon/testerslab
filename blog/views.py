@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.db.models import Q
-from blog.models import Post
+from blog.models import Post, Category
 
 
 def index(request):
@@ -28,11 +28,17 @@ def tag(request, tag):
     return render(request, 'tag.html', context)
 
 
-def category(request, cat):
-    posts = Post.objects.filter(categories__name=cat)
+def category(request, slug):
+    posts = Post.objects.filter(categories__slug=slug)
+    try:
+        c = Category.objects.get(slug=slug)
+        name = c.name
+    except Category.DoesNotExist:
+        name = 'default'
     context = {
         'posts': posts,
-        'cat': cat,
+        'slug': slug,
+        'cat': name,
     }
     return render(request, 'category.html', context)
 

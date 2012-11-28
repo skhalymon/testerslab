@@ -24,7 +24,7 @@
           <i class="icon-th"></i>
           Category:
           {% for cat in post.categories.all %}
-          <a href={% url category cat %}>{{ cat }}</a>
+          <a href={% url category cat.slug %}>{{ cat }}</a>
             {% if not forloop.last %}, {% endif %}
           {% endfor %}
         </p>

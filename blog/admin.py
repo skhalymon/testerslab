@@ -9,6 +9,8 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title']
     date_hierarchy = 'created'
 
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
