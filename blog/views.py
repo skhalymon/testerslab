@@ -54,7 +54,7 @@ def archive(request):
 def search(request):
     errors = []
     if 'q' in request.GET:
-        query = request.GET['q']
+        query = search_term = request.GET['q']
         query = handle_keywords(query)
         if not query:
             errors.append('Enter minimum 3 characters')
@@ -67,6 +67,7 @@ def search(request):
                 published=True,
             ).order_by('created').distinct()
             context = {
+                'search_term': search_term,
                 'query_results': query_results,
             }
             return render(request, 'results.html', context)

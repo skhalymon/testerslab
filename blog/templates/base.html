@@ -37,8 +37,15 @@
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
           <a class="brand m-brand" href={% url index %}>TestLAB</a>
-          <form class="form-search m-search">
-            <input type="text" placeholder="Type to search" class="pull-right">
+            {% if errors %}
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+          <form action="{% url search %}" method="get" class="form-search m-search">
+            <input type="text" name="q" placeholder="Type to search" class="pull-right">
           </form>
           <div style="font-size: 24px; float: right; padding: 5px 5px 5px 0px; margin-right: 15px">
             <i class="icon-search icon-large"></i>

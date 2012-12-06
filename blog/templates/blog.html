@@ -2,10 +2,6 @@
 
 {% block content %}
 
-<div class="hero-unit">
-  <h1>Hello, world!</h1>
-</div>
-
 <div class="row-fluid">
   <div class="span9 well">
 
@@ -34,24 +30,7 @@
 
   </div>
   <div class="span3 well">
-    <h2>Search</h2>
-    {% if errors %}
-        <ul>
-            {% for error in errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <form action="{% url search %}" method="get">
-      <p>
-        <input type="text" class="input-large" name="q">
-      </p>
-      <button type="submit" class="btn">Search</button>
-    </form>
-  </div>
-
-  <div class="span3 well">
-    <h2>Archive</h2>
+    <h2>Quick Links</h2>
     <p>lorem ipsum dolor</p>
   </div>
 
