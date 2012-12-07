@@ -1,39 +1,50 @@
 {% extends "base.html" %}
+{% load gravatar %}
 
 {% block content %}
 
+
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span6 page-header">
-      <h2 class="muted">Posts in category: {{cat}}</h2>
+    <div class="span10">
+    <br>
+      <h1>
+        <small>
+          Posts in category: <strong>{{ cat }}</strong>
+        </small>
+      </h1>
     </div>
   </div>
+  <hr>
 </div>
 
-
 <div class="container-fluid">
+  {% for post in posts %}
   <div class="row-fluid">
+    <div class="span2">
+      <p class="lead">Author:</p>
+        <div class="thumbnail">
+          <img src={% gravatar_url post.author.email 175 %} alt="">
+        </div>
+      </br>
+      <p class="muted"><i class="icon-calendar"></i> Post by <strong><a href="#">{{ post.author|capfirst }}</a></strong> created on: </p>
+      <p>{{ post.created|date:"M d, Y" }}</p>
+    </div>
     <div class="span6">
-      <div class="well">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th><i class="icon-calendar"></i>Date</th>
-              <th>Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for post in posts %}
-            <tr>
-              <td>{{ post.created|date:"M d, Y" }}</td>
-              <td><a href="{% url post post.slug %}">{{ post.title }}</a></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+      <p class="lead">Description: </p>
+      <h4><strong><a href={% url post post.slug %}>{{ post.title }}</a></strong></h4>
+      <p>{{ post.content|safe|striptags|truncatewords:75 }}</p>
+      <p><a class="btn" href="{% url post post.slug %}">Read more</a></p>
+    </div>
+    <div class="span2">
+      <p class="lead">Tags: </p>
+      {% for tag in post.tags.all %}
+      <a href={% url tag tag %}><span class="label label-info">{{ tag }}</span></a>
+      {% endfor %}
     </div>
   </div>
+  <hr>
+  {% endfor %}
 </div>
 
 {% endblock %}

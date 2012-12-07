@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'taggit',
     'blog',
     'south',
+    'django_gravatar',
 )
 
 # A sample logging configuration. The only tangible logging
