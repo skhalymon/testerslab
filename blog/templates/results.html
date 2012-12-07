@@ -4,16 +4,29 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span6">
+    <div class="span5">
 {% if query_results|length == 0 %}
-      <h3 class="muted">Sorry, no posts matched your criteria.</h3>
+      <hr>
+      <h1>
+        <small>
+          <strong>Sorry, no posts matched your criteria.</strong>
+        </small>
+      </h1>
+      <hr>
+      <div class="row-fluid" style="font-size: 288px; padding:75px 0px 0px 75px;">
+        <i class="icon-heart-empty"></i>
+      </div>
+      <hr>
     </div>
   </div>
 </div>
-
 {% else %}
       <br>
-      <h3>Search results for: <i class="muted">{{ search_term }}</i></h3>
+      <h1>
+        <small>
+          Search results for: <strong>{{ search_term }}</strong>
+        </small>
+      </h1>
     </div>
   </div>
   <hr>
