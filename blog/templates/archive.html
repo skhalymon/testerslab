@@ -4,36 +4,33 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span6 page-header">
-      <h2>Archive</h2>
+    <div class="span10">
+    <br>
+      <h2>
+        Blog Archive
+      </h2>
     </div>
   </div>
+  <hr>
 </div>
 
-
 <div class="container-fluid">
+  {% for post in all_posts %}
   <div class="row-fluid">
-    <div class="span6">
-      <div class="well">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th><i class="icon-calendar"></i>Date</th>
-              <th>Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for post in all_posts %}
-            <tr>
-              <td>{{ post.created|date:"M d, Y" }}</td>
-              <td><a href="{% url post post.slug %}">{{ post.title }}</a></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+    <div class="span2">
+      {% ifchanged %}
+      <p class="lead muted"><strong>{{ post.created|date:"Y" }}</strong></p>
+      {% endifchanged %}
+    </div>
+    <div class="span2">
+      <p class="lead muted">{{ post.created|date:"M d" }}</p>
+    </div>
+    <div class="span8">
+      <p class="lead"><a href="{% url post post.slug %}">{{ post.title }}</a></p>
     </div>
   </div>
+  <hr>
+  {% endfor %}
 </div>
 
 {% endblock %}
