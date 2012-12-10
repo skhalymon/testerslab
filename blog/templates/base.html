@@ -12,12 +12,6 @@
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/custom/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/static/custom/css/style.css">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,7 +31,7 @@
     <div class="navbar navbar-fixed-top m-header">
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
-          <a class="brand m-brand" href={% url index %}>TestLAB</a>
+            <a class="brand m-brand" href={% url index %}>TestLAB</a>
             {% if errors %}
             <ul>
                 {% for error in errors %}
@@ -61,7 +55,7 @@
           <a href="{% url index %}">
             <div>
               <div style="font-size: 24px;">
-                <i class="icon-camera-retro icon-large"></i>
+                <i class="icon-home icon-large"></i>
               </div>
               <div class="title">
                 Home
@@ -97,7 +91,7 @@
           <a href="#" rel="clickover" data-content="{% nav_categorylist %}">
             <div>
               <div style="font-size: 24px;">
-                <i class="icon-github icon-large"></i>
+                <i class="icon-folder-open icon-large"></i>
               </div>
               <div class="title">
                 Categories
@@ -119,10 +113,11 @@
       <div class="container">
         <div class="row">
           <div class="span12">
-            <!-- Copyright information -->
-            <div class="pull-right">Copyright Â© 2012 - <a href="#">Your Site</a> / <a href="#">Disclaimer</a> / <a href="#">Privacy Policy</a></div>
+            <p class="footer-extra">
+            powered by <a href="https://www.djangoproject.com/">django</a>
+            / source code on  <a href="https://github.com/danclaudiupop/my-blog"><i class="icon-github"></i></a>
+            </p>
           </div>
-        </div>
       </div>
     </footer>
 
