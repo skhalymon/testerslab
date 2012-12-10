@@ -33,6 +33,7 @@
   </head>
 
   <body>
+    <a name="top"></a>
     <div class="navbar navbar-fixed-top m-header">
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
@@ -137,11 +138,16 @@
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/custom/js/bootstrapx-clickover.js"></script>
     <script>
-    $('[rel="clickover"]').clickover({ onShown: function() {
-      $('.popover.clickover').css({'position': 'fixed', 'width': 'auto'});},
-      html: true,
-    });
+      $('[rel="clickover"]').clickover({ onShown: function() {
+        $('.popover.clickover').css({'position': 'fixed', 'width': 'auto'});},
+        html: true,
+      });
     </script>
-
+    <script>
+      $(document).ready(function() {
+        $('a[href=#top]').click(function(){
+          $('html, body').animate({scrollTop:0}, 'fast');})
+      });
+    </script>
   </body>
 </html>
