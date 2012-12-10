@@ -75,7 +75,10 @@ def search(request):
                 'query_results': query_results,
             }
             return render(request, 'results.html', context)
-    return render(request, 'blog.html', {'errors': errors})
+    return render(request, 'results.html', {
+        'search_term': search_term,
+        'errors': errors,
+    })
 
 
 def handle_keywords(keywords):

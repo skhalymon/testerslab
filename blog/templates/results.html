@@ -39,8 +39,12 @@
   </div>
   <hr>
 </div>
-
 <div class="container-fluid">
+  {% if errors %}
+    {% for error in errors %}
+      <p>{{ error }}</p>
+    {% endfor %}
+  {% endif %}
   {% for post in query_results %}
   <div class="span12">
     <div class="row">
