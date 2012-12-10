@@ -31,7 +31,7 @@
     <div class="navbar navbar-fixed-top m-header">
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
-          <a class="brand m-brand" href={% url index %}>TestLAB</a>
+          <a class="brand" href={% url index %}><i class="logo icon-beaker icon-large"></i> TestLAB</a>
           <form action="{% url search %}" method="get" class="form-search m-search">
             <input type="text" name="q" placeholder="Type to search" class="pull-right">
           </form>
@@ -108,7 +108,10 @@
           <div class="span12">
             <p class="footer-extra">
             powered by <a href="https://www.djangoproject.com/">django</a>
-            / source code on  <a href="https://github.com/danclaudiupop/my-blog"><i class="icon-github"></i></a>
+            / <a href="https://github.com/danclaudiupop/my-blog">source code</a> on
+              <span style="color: #777">
+                <i class="icon-github"></i>
+              </span>
             </p>
           </div>
       </div>
