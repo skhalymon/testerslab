@@ -9,7 +9,10 @@ from blog.models import Post, Category
 
 def index(request):
     latest_posts = Post.objects.filter(published=True).order_by('-created')[:5]
-    context = {'latest_posts': latest_posts}
+    context = {
+        'latest_posts': latest_posts,
+        'page_type': 'highlight_index',
+    }
     return render(request, 'blog.html', context)
 
 
@@ -34,7 +37,7 @@ def category(request, slug):
         c = Category.objects.get(slug=slug)
         name = c.name
     except Category.DoesNotExist:
-        name = 'default'
+        name = 'testing'
     context = {
         'posts': posts,
         'slug': slug,
@@ -47,6 +50,7 @@ def archive(request):
     all_posts = Post.objects.filter(published=True).order_by('-created')
     context = {
         'all_posts': all_posts,
+        'page_type': 'highlight_archive',
     }
     return render(request, 'archive.html', context)
 

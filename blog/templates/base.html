@@ -57,7 +57,7 @@
 
     <aside class="sidebar">
       <ul class="nav nav-tabs nav-stacked">
-        <li class="{% ifequal page_type 'index' %}active{% endifequal %}">
+        <li class="{% ifequal page_type 'highlight_index' %}active{% endifequal %}">
           <a href="{% url index %}">
             <div>
               <div style="font-size: 24px;">
@@ -75,7 +75,7 @@
           </a>
         </li>
 
-        <li class="{% ifequal page_type 'archive' %}active{% endifequal %}">
+        <li class="{% ifequal page_type 'highlight_archive' %}active{% endifequal %}">
           <a href="{% url archive %}">
             <div>
               <div style="font-size: 24px;">
@@ -93,8 +93,8 @@
           </a>
         </li>
 
-        <li class="{% ifequal page_type 'archive' %}active{% endifequal %}">
-          <a href="{% url archive %}" rel="clickover" data-content="{% nav_categorylist %}">
+        <li class="">
+          <a href="#" rel="clickover" data-content="{% nav_categorylist %}">
             <div>
               <div style="font-size: 24px;">
                 <i class="icon-github icon-large"></i>
@@ -102,11 +102,6 @@
               <div class="title">
                 Categories
               </div>
-            </div>
-
-            <div class="arrow">
-              <div class="bubble-arrow-border"></div>
-              <div class="bubble-arrow"></div>
             </div>
           </a>
         </li>
@@ -139,7 +134,7 @@
     <script type="text/javascript" src="/static/custom/js/bootstrapx-clickover.js"></script>
     <script>
       $('[rel="clickover"]').clickover({ onShown: function() {
-        $('.popover.clickover').css({'position': 'fixed', 'width': 'auto'});},
+        $('.popover.clickover').css({'width': 'auto'});},
         html: true,
       });
     </script>
