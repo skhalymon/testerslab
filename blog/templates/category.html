@@ -22,12 +22,11 @@
   <div class="row-fluid">
     <div class="span2">
       <p class="lead">Author:</p>
-        <div class="thumbnail">
-          <img src={% gravatar_url post.author.email 175 %} alt="">
-        </div>
-      </br>
+      <img src={% gravatar_url post.author.email 100 %} alt="{{ post.author.email }}" class="img-polaroid">
+      <hr>
       <p class="muted"><i class="icon-calendar"></i><small> Post by <strong><a href="#">{{ post.author|capfirst }}</a></strong> created on: </small></p>
       <p><small>{{ post.created|date:"M d, Y" }}</small></p>
+      </br>
     </div>
     <div class="span6">
       <p class="lead">Description: </p>
