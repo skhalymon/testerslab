@@ -7,7 +7,7 @@
     {% for post in latest_posts %}
     <div class="well">
       <h2><a href={% url post post.slug %}>{{ post.title }}</a></h2>
-      <p class="muted">on {{ post.created|date:"M d Y" }}, <i class="icon-user"></i> by <a href="#">{{ post.author|capfirst }}</a></p>
+      <p class="muted">on {{ post.created|date:"M d" }}, {{ post.created|date:"Y" }} | <i class="icon-user"></i> by <a href="#">{{ post.author|capfirst }}</a></p>
       <hr>
       <p>{{ post.content|safe }}</p>
       <hr>
@@ -33,9 +33,22 @@
     {% endfor %}
   </div>
 
-  <div class="span3 well">
-    <h2>Quick Links</h2>
-    <p>lorem ipsum dolor</p>
+  <div class="span3">
+    <div class="well">
+      <h2>Latests Posts</h2>
+      {% for post in latest_posts %}
+      <p><a href={% url post post.slug %}>{{ post.title }}</a></p>
+      {% endfor %}
+    </div>
+    <div class="well">
+      <h2>Quick links</h2>
+      <p>link1</p>
+      <p>link1</p>
+      <p>link1</p>
+      <p>link2</p>
+      <p>link2</p>
+      <p>link2</p>
+    </div>
   </div>
 
 </div>

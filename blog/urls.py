@@ -20,7 +20,8 @@ urlpatterns = patterns('blog.views',
     ),
     url(
         r'^feed/$',
-        LatestEntries()
+        LatestEntries(),
+        name='rss'
     ),
     url(
         r'^tag/(?P<tag>\w+)/$',
