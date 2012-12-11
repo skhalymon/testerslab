@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 from blog.views import LatestEntries
+from django.conf.urls.defaults import *
+from django.views.generic.simple import direct_to_template
 
 
 urlpatterns = patterns('blog.views',
@@ -7,6 +9,12 @@ urlpatterns = patterns('blog.views',
         r'^$',
         'index',
         name='index'
+    ),
+    url(
+        r'^about/$',
+        direct_to_template,
+        {'template': 'about.html'},
+        name='about'
     ),
     url(
         r'^search/$',

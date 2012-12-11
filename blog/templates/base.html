@@ -1,4 +1,4 @@
-{% load category_list %}
+{% load list_categories %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,7 +81,7 @@
         </li>
 
         <li class="">
-          <a href="#" rel="clickover" data-content="{% nav_categorylist %}">
+          <a href="#" rel="clickover" data-content="{% get_categories %}">
             <div>
               <div style="font-size: 24px;">
                 <i class="icon-folder-open icon-large"></i>
@@ -89,6 +89,24 @@
               <div class="title">
                 Categories
               </div>
+            </div>
+          </a>
+        </li>
+
+        <li class="">
+          <a href="{% url about %}">
+            <div>
+              <div style="font-size: 24px;">
+                <i class="icon-info-sign icon-large"></i>
+              </div>
+              <div class="title">
+                About us
+              </div>
+            </div>
+
+            <div class="arrow">
+              <div class="bubble-arrow-border"></div>
+              <div class="bubble-arrow"></div>
             </div>
           </a>
         </li>

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load list_users %}
+
+{% block content %}
+  <div class="row-fluid">
+    <h1>Users</h1>
+    {% get_users %}
+  </div>
+{% endblock %}
