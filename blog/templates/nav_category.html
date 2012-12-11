@@ -1,0 +1,15 @@
+<ul class='nav nav-tabs nav-stacked'>
+{% for cat in categories %}
+    <li><a href='{% url category cat.slug %}'>
+        <div>
+            <div style='font-size: 24px;'>
+                <i class='icon-beaker icon-large'></i>
+            </div>
+            <div class='title'>
+                {{ cat.name }}
+            </div>
+        </div>
+    </a>
+    </li>
+{% endfor %}
+</ul>
