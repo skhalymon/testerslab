@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
-from blog.views import LatestEntries
-from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
+
+from blog.views import LatestEntries
 
 
 urlpatterns = patterns('blog.views',
@@ -13,7 +13,12 @@ urlpatterns = patterns('blog.views',
     url(
         r'^about/$',
         direct_to_template,
-        {'template': 'about.html'},
+        {
+            'template': 'about.html',
+            'extra_context': {
+                'page_type': 'active',
+            }
+        },
         name='about'
     ),
     url(
