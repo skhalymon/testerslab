@@ -41,7 +41,7 @@ class Post(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True, primary_key=True)
-    content = RichTextField(config_name='ckeditor')
+    description = RichTextField(config_name='ckeditor')
 
 
 def create_user_profile(sender, instance, created, **kwargs):

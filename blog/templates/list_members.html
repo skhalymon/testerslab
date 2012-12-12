@@ -5,7 +5,7 @@
       <i class='icon-beaker icon-large'></i>
     </div>
     <div class='title'>
-      {{ u.get_profile.content }}
+      {{ u.get_profile.description|safe }}
     </div>
   </li>
 {% endfor %}
