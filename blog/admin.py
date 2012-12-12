@@ -7,7 +7,7 @@ from blog.models import UserProfile
 
 
 class PostAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("title",)}
+    prepopulated_fields = {'slug': ('title',)}
     list_display = ('title', 'created', 'get_categories', 'is_published')
     list_filter = ['created', 'categories']
     search_fields = ['title']

@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 
 def get_users():
     users = User.objects.all()
-    return {'users': users}
+    return {
+        'users': users,
+    }
 
 register.inclusion_tag('list_members.html')(get_users)

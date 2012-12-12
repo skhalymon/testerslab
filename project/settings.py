@@ -154,6 +154,8 @@ LOGGING = {
     }
 }
 
+AUTH_PROFILE_MODULE = 'blog.UserProfile'
+
 CKEDITOR_UPLOAD_PATH = "blog/static/media"
 CKEDITOR_CONFIGS = {
             'ckeditor': {
