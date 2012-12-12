@@ -1,12 +1,14 @@
-<ul>
-{% for u in users %}
-  <li>
-    <div style='font-size: 24px;'>
-      <i class='icon-beaker icon-large'></i>
+{% load gravatar %}
+{% for user in users %}
+  <div class="row-fluid">
+    <hr>
+    <div class="span2">
+      <img src={% gravatar_url user.email 175 %} alt="{{ post.author.email }}" class="img-polaroid">
     </div>
-    <div class='title'>
-      {{ u.get_profile.description|safe }}
+    <div class="span8">
+      <h2>{{ user.get_full_name }}</h2>
+      <h3>{{ user.get_profile.role }}</h3>
+      <p>{{ user.get_profile.description|safe }}</p>
     </div>
-  </li>
+  </div>
 {% endfor %}
-</ul>

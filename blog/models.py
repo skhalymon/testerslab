@@ -41,6 +41,7 @@ class Post(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True, primary_key=True)
+    role = models.CharField(max_length=50)
     description = RichTextField(config_name='ckeditor')
 
 
