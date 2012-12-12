@@ -36,3 +36,8 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    content = RichTextField(config_name='ckeditor')
