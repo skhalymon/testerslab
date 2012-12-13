@@ -31,9 +31,14 @@ class Post(models.Model):
         return ' | '.join([s.name for s in self.categories.all()])
     get_categories.short_description = 'Categories'
 
-    def is_published(self):
-        return self.published
-    is_published.boolean = True
+    def __unicode__(self):
+        return self.title
+
+
+class QuickLink(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    url = models.URLField(max_length=200, unique=True)
+    visible = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.title
