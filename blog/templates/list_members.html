@@ -1,4 +1,14 @@
 {% load gravatar %}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span10 headline">
+      <h2>
+        Meet the Team
+      </h2>
+    </div>
+  </div>
+</div>
+
 {% for user in users %}
   <div class="row-fluid">
     <hr>
@@ -7,7 +17,7 @@
     </div>
     <div class="span8">
       <h2>{{ user.get_full_name }}</h2>
-      <h3>{{ user.get_profile.role }}</h3>
+      <p class="lead muted">{{ user.get_profile.role }}</p>
       <p>{{ user.get_profile.description|safe }}</p>
     </div>
   </div>
