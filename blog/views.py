@@ -33,15 +33,11 @@ def tag(request, tag):
 
 def category(request, slug):
     posts = Post.objects.filter(categories__slug=slug)
-    try:
-        c = Category.objects.get(slug=slug)
-        name = c.name
-    except Category.DoesNotExist:
-        name = 'testing'
+    cat = get_object_or_404(Category, slug=slug)
     context = {
         'posts': posts,
         'slug': slug,
-        'cat': name,
+        'cat': cat.name,
     }
     return render(request, 'category.html', context)
 
