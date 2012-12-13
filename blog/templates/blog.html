@@ -36,18 +36,30 @@
   <div class="span3">
     <div class="well">
       <h2>Latests Posts</h2>
+      <ul class="nav nav-tabs nav-stacked">
       {% for post in latest_posts %}
-      <p><a href={% url post post.slug %}>{{ post.title }}</a></p>
+        <li>
+          <a href={% url post post.slug %}>{{ post.title }}</a>
+        </li>
       {% endfor %}
+      </li>
     </div>
     <div class="well">
       <h2>Quick links</h2>
-      <p>link1</p>
-      <p>link1</p>
-      <p>link1</p>
-      <p>link2</p>
-      <p>link2</p>
-      <p>link2</p>
+      <ul class="nav nav-list">
+        <li>
+          <a href="#">link1</a>
+        </li>
+        <li>
+          <a href="#">link1</a>
+        </li>
+        <li>
+          <a href="#">link1</a>
+        </li>
+        <li>
+          <a href="#">link1</a>
+        </li>
+      </ul>
     </div>
   </div>
 
