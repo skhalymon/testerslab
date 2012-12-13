@@ -7,7 +7,7 @@
     {% for post in latest_posts %}
     <div class="well">
       <h2><a href={% url post post.slug %}>{{ post.title }}</a></h2>
-      <p class="muted">on {{ post.created|date:"M d" }}, {{ post.created|date:"Y" }} | <i class="icon-user"></i> by <a href="#">{{ post.author|capfirst }}</a></p>
+      <p class="muted">on {{ post.created|date:"M d" }}, {{ post.created|date:"Y" }} by <i class="icon-user"></i><a href="{% url about %}">{{ post.author|capfirst }}</a></p>
       <hr>
       <p>{{ post.content|safe }}</p>
       <hr>

@@ -62,7 +62,7 @@
       <div class="span12">
         <p></p>
         <p>
-          <i class="icon-user"></i> by <a href="#">{{ post.author|capfirst }}</a>
+        <i class="icon-user"></i> by <a href="{% url about %}">{{ post.author|capfirst }}</a>
           | <i class="icon-calendar"></i> {{ post.created|date:"M d, Y" }}
           | Tags:
           {% for tag in post.tags.all %}

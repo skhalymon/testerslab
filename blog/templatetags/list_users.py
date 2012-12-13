@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 
 def get_users():
-    users = User.objects.all()
+    users = User.objects.all().order_by('?')
     return {
         'users': users,
     }
