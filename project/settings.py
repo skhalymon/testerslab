@@ -115,7 +115,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'ckeditor',
@@ -156,7 +155,7 @@ LOGGING = {
 
 AUTH_PROFILE_MODULE = 'blog.UserProfile'
 
-CKEDITOR_UPLOAD_PATH = "blog/static/media"
+CKEDITOR_UPLOAD_PATH = "blog/media"
 CKEDITOR_CONFIGS = {
             'ckeditor': {
                 'toolbar': 'Basic',
