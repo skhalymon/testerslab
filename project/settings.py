@@ -1,4 +1,4 @@
-# Django settings for danclaudiupop project.
+# Django settings for testerslab project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -161,3 +161,6 @@ CKEDITOR_CONFIGS = {
                 'toolbar': 'Basic',
             },
 }
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
