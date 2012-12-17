@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>TestersLab</title>
+    <title>Tester's Laboratory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,7 +31,10 @@
     <div class="navbar navbar-fixed-top m-header">
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
-          <a class="brand" href={% url index %}><i class="logo icon-beaker icon-large"></i> TestLAB</a>
+          <a class="brand" href={% url index %}>
+            <i class="logo icon-beaker icon-large"></i> Tester's Laboratory
+            <code>theory practitioners</code>
+          </a>
           <form action="{% url search %}" method="get" class="form-search m-search">
             <input type="text" name="q" placeholder="Type to search" class="pull-right">
           </form>
