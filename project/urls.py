@@ -8,7 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ckeditor/', include('ckeditor.urls')),
-    url(r'^blog/', include('blog.urls')),
+    url(r'', include('blog.urls')),
 )
 
 urlpatterns += patterns('',
