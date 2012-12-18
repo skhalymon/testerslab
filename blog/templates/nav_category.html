@@ -1,11 +1,11 @@
-<ul class='nav nav-tabs nav-stacked'>
+<ul class="nav nav-tabs nav-stacked">
 {% for cat in categories %}
   <li>
-    <a href='{% url category cat.slug %}'>
-      <div style='font-size: 24px;'>
-        <i class='icon-beaker icon-large'></i>
+    <a href="{% url category cat.slug %}">
+      <div style="font-size: 24px;">
+        <i class="icon-beaker icon-large"></i>
       </div>
-      <div class='title'>
+      <div class="title">
         {{ cat.name }}
       </div>
     </a>

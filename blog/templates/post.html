@@ -14,13 +14,13 @@
         <i class="icon-tags"></i>
         Tags:
         {% for tag in post.tags.all %}
-        <a href={% url tag tag %}><span class="label label-info">{{ tag }}</span></a>
+        <a href="{% url tag tag %}"><span class="label label-info">{{ tag }}</span></a>
         {% endfor %}
         |
         <i class="icon-beaker"></i>
         Category:
         {% for cat in post.categories.all %}
-        <a href={% url category cat.slug %}>{{ cat }}</a>
+        <a href="{% url category cat.slug %}">{{ cat }}</a>
         {% if not forloop.last %}, {% endif %}
         {% endfor %}
         <span class="pull-right">

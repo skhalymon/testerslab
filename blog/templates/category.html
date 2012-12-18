@@ -30,14 +30,14 @@
     </div>
     <div class="span6">
       <p class="lead">Description: </p>
-      <h4><strong><a href={% url post post.slug %}>{{ post.title }}</a></strong></h4>
+      <h4><strong><a href="{% url post post.slug %}">{{ post.title }}</a></strong></h4>
       <p>{{ post.content|safe|striptags|truncatewords:75 }}</p>
       <p><a class="btn" href="{% url post post.slug %}">Read more</a></p>
     </div>
     <div class="span4">
       <p class="lead">Tags: </p>
       {% for tag in post.tags.all %}
-      <a href={% url tag tag %}><span class="label label-info">{{ tag }}</span></a>
+      <a href="{% url tag tag %}"><span class="label label-info">{{ tag }}</span></a>
       {% endfor %}
     </div>
   </div>
