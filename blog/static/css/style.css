@@ -162,3 +162,9 @@ select{
 .headline h2{
     padding-top: 20px;
 }
+
+.dotted{
+    border-bottom: thin grey dotted;
+    padding: 0;
+    margin: 0;
+}

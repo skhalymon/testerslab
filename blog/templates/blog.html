@@ -42,13 +42,14 @@
   <div class="span3">
     <div class="well">
       <h2>Latests Posts</h2>
-      <ul class="nav nav-tabs nav-stacked">
+      <ul class="nav nav-list">
       {% for post in latest_posts %}
         <li>
           <a href="{% url post post.slug %}">{{ post.title }}</a>
         </li>
+      <hr class="dotted">
       {% endfor %}
-      </li>
+      </ul>
     </div>
     <div class="well">
       <h2>Quick links</h2>

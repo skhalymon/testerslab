@@ -1,7 +1,8 @@
 {% for link in quick_links %}
 <ul class="nav nav-list">
   <li>
-    <a href="{{ link.url }}">{{ link.title }}</a>
+  <a href="{{ link.url }}"><i class="icon-external-link"></i>{{ link.title }}</a>
   </li>
+  <hr class="dotted">
 </ul>
 {% endfor %}
