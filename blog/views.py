@@ -87,8 +87,8 @@ def handle_keywords(keywords):
 
 class LatestEntries(Feed):
     title = "TestLab"
-    link = "/blog/feed/"
-    description = "Tester's Laborator"
+    link = "/feed/"
+    description = "Tester's Laboratory"
 
     def items(self):
         return Post.objects.filter(published=True).order_by('-created')[:5]
