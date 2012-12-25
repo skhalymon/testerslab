@@ -11,15 +11,8 @@ urlpatterns = patterns('blog.views',
         name='index'
     ),
     url(
-        r'^about/$',
-        direct_to_template,
-        {
-            'template': 'about.html',
-            'extra_context': {
-                'page_type': 'active',
-            }
-        },
-        name='about'
+        r'^posts/(?P<user>\w+)/$',
+        'posts_by_user',
     ),
     url(
         r'^search/$',
@@ -35,6 +28,11 @@ urlpatterns = patterns('blog.views',
         r'^feed/$',
         LatestEntries(),
         name='rss'
+    ),
+    url(
+        r'^about/$',
+        'users',
+        name='about'
     ),
     url(
         r'^tag/(?P<tag>\w+)/$',

@@ -1,9 +1,13 @@
+import json
 import operator
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.syndication.views import Feed
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
 from django.db.models import Q
+
 from blog.models import Post, Category
 
 
@@ -49,6 +53,22 @@ def archive(request):
         'page_type': 'highlight_archive',
     }
     return render(request, 'archive.html', context)
+
+
+def users(request):
+    users = User.objects.all().order_by('?')
+    context = {'users': users}
+    return render(request, 'about.html', context)
+
+
+def posts_by_user(request, user):
+    posts_by_user = Post.objects.filter(
+        author__username=user
+    ).values('title', 'slug')
+    return HttpResponse(
+        json.dumps(list(posts_by_user)),
+        mimetype='application/json'
+    )
 
 
 def search(request):
