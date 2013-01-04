@@ -63,7 +63,8 @@ def users(request):
 
 def posts_by_user(request, user):
     posts_by_user = Post.objects.filter(
-        author__username=user
+        author__username=user,
+        published=True,
     ).values('title', 'slug')
     return HttpResponse(
         json.dumps(list(posts_by_user)),

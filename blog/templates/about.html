@@ -29,9 +29,27 @@
       <h2>{{ user.get_full_name }}</h2>
       <p class="lead muted">{{ user.get_profile.role }}</p>
       <p>{{ user.get_profile.description|safe }}</p>
+      <div id="result_{{ user }}">
+        <p><button class="btn btn-block btn-mini" type="button" id="btn_{{ user }}" onclick="loadposts('{{ user }}')">See posts by {{ user }}</button></p>
+      </div>
     </div>
   </div>
 </div>
 {% endfor %}
 
+<script>
+
+function loadposts(usr) {
+  $.getJSON("/posts/" + usr ,function(result) {
+    var res = "#result_" + usr
+    $("<hr>").appendTo(res)
+    $("<h4>").html("Posts:").appendTo(res)
+    $.each(result, function(i, key) {
+      $("<a>").attr("href", "/" + key.slug).text(key.title).append('<br>').appendTo(res)
+      $("#btn_" + usr).remove()
+    });
+  });
+}
+
+</script>
 {% endblock %}
