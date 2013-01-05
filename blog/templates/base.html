@@ -11,7 +11,7 @@
 
     <!-- Le styles -->
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -33,15 +33,15 @@
       <div class="navbar-inner m-inner">
         <div class="container-fluid">
           <a class="brand" href="{% url index %}">
-            <i class="logo icon-beaker icon-large"></i> Tester's Laboratory
+            <i class="icon-beaker icon-large"></i> Tester's Laboratory
             <code>theory practitioners</code>
           </a>
           <form action="{% url search %}" method="get" class="form-search m-search">
-            <input type="text" name="q" placeholder="Type to search" required="required" class="pull-right" style="width: 235px">
+            <div class="input-prepend pull-right">
+              <span class="add-on"><i class="icon-search"></i></span>
+              <input type="text" name="q" placeholder="Type to search" required="required" class="pull-right" style="width: 235px">
+            </div>
           </form>
-          <div style="font-size: 24px; float: right; padding: 5px 5px 5px 0px; margin-right: 15px">
-            <i class="icon-search icon-large"></i>
-          </div>
         </div>
       </div>
     </div>
@@ -51,9 +51,7 @@
         <li class="{% ifequal page_type 'highlight_index' %}active{% endifequal %}">
           <a href="{% url index %}">
             <div>
-              <div style="font-size: 24px;">
-                <i class="icon-home icon-large"></i>
-              </div>
+              <i class="icon-home icon-3x"></i>
               <div class="title">
                 Home
               </div>
@@ -69,9 +67,7 @@
         <li class="{% ifequal page_type 'highlight_archive' %}active{% endifequal %}">
           <a href="{% url archive %}">
             <div>
-              <div style="font-size: 24px;">
-                <i class="icon-book icon-large"></i>
-              </div>
+               <i class="icon-book icon-3x"></i>
               <div class="title">
                 Archive
               </div>
@@ -87,9 +83,7 @@
         <li class="">
           <a href="#" rel="clickover" data-content="{% get_categories %}">
             <div>
-              <div style="font-size: 24px;">
-                <i class="icon-folder-open icon-large"></i>
-              </div>
+              <i class="icon-folder-open icon-3x"></i>
               <div class="title">
                 Categories
               </div>
@@ -100,9 +94,7 @@
         <li class="{{ page_type }}">
           <a href="{% url about %}">
             <div>
-              <div style="font-size: 24px;">
-                <i class="icon-info-sign icon-large"></i>
-              </div>
+              <i class="icon-info-sign icon-3x"></i>
               <div class="title">
                 About us
               </div>
@@ -118,9 +110,7 @@
         <li class="">
           <a href="{% url rss %}">
             <div>
-              <div style="font-size: 24px;">
-                <i class="icon-rss icon-large"></i>
-              </div>
+              <i class="icon-rss icon-3x"></i>
               <div class="title">
                 RSS
               </div>
@@ -149,7 +139,7 @@
             powered by <a href="https://www.djangoproject.com/">django</a>
             / <a href="https://github.com/danclaudiupop/testerslab">source code</a> on
               <span style="color: #777">
-                <i class="icon-github"></i>
+                <i class="icon-github icon-2x"></i>
               </span>
             </p>
           </div>
