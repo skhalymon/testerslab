@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span5">
+    <div class="span10">
 {% if query_results|length == 0 %}
       <hr>
       <h1>
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="row-fluid">
-    <div class="span5">
+    <div class="span8">
       <p><strong>Suggestions:</strong></p>
       <p>Make sure all words are spelled correctly.</p>
       <p>Try different keywords.</p>
@@ -39,6 +39,7 @@
   </div>
   <hr>
 </div>
+
 <div class="container-fluid">
   {% if errors %}
     {% for error in errors %}
@@ -46,22 +47,11 @@
     {% endfor %}
   {% endif %}
   {% for post in query_results %}
-  <div class="span12">
-    <div class="row">
-      <div class="span12">
-      </div>
-    </div>
-    <div class="row">
-      <div class="span12">
+    <div class="row-fluid">
+      <div class="span8">
         <p class="lead"><a href="{% url post post.slug %}">{{ post.title }}</a></p>
         <p>{{ post.content|safe|striptags|truncatewords:50 }}</p>
-        <p><a class="btn" href="{% url post post.slug %}">Read more</a></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span12">
-        <p></p>
-        <p>
+        <p class="muted">
         <i class="icon-user"></i> by <a href="{% url about %}">{{ post.author|capfirst }}</a>
           | <i class="icon-calendar"></i> {{ post.created|date:"M d, Y" }}
           | Tags:
@@ -69,10 +59,10 @@
           <a href="{% url tag tag %}"><span class="label label-info">{{ tag }}</span></a>
           {% endfor %}
         </p>
+        <p><a class="btn btn-mini btn-link pull-right" href="{% url post post.slug %}">Read more</a></p>
+      <hr>
       </div>
     </div>
-  <hr>
-  </div>
   {% endfor %}
 </div>
 

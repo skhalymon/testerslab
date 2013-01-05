@@ -34,7 +34,7 @@
         <div class="container-fluid">
           <a class="brand" href="{% url index %}">
             <i class="icon-beaker icon-large"></i> Tester's Laboratory
-            <code>theory practitioners</code>
+            <small style="font-size:55%">Software Testing and more</small>
           </a>
           <form action="{% url search %}" method="get" class="form-search m-search">
             <div class="input-prepend pull-right">
@@ -67,7 +67,7 @@
         <li class="{% ifequal page_type 'highlight_archive' %}active{% endifequal %}">
           <a href="{% url archive %}">
             <div>
-               <i class="icon-book icon-3x"></i>
+               <i class="icon-calendar icon-3x"></i>
               <div class="title">
                 Archive
               </div>
@@ -80,10 +80,10 @@
           </a>
         </li>
 
-        <li class="">
+        <li class="{% ifequal page_type 'highlight_category' %}active{% endifequal %}">
           <a href="#" rel="clickover" data-content="{% get_categories %}">
             <div>
-              <i class="icon-folder-open icon-3x"></i>
+              <i class="icon-folder-close icon-3x"></i>
               <div class="title">
                 Categories
               </div>
@@ -91,10 +91,10 @@
           </a>
         </li>
 
-        <li class="{{ page_type }}">
+        <li class="{% ifequal page_type 'highlight_about' %}active{% endifequal %}">
           <a href="{% url about %}">
             <div>
-              <i class="icon-info-sign icon-3x"></i>
+              <i class="icon-group icon-3x"></i>
               <div class="title">
                 About us
               </div>

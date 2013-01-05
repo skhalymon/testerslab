@@ -42,6 +42,7 @@ def category(request, slug):
         'posts': posts,
         'slug': slug,
         'cat': cat.name,
+        'page_type': 'highlight_category',
     }
     return render(request, 'category.html', context)
 
@@ -57,7 +58,10 @@ def archive(request):
 
 def users(request):
     users = User.objects.all().order_by('?')
-    context = {'users': users}
+    context = {
+        'users': users,
+        'page_type': 'highlight_about',
+    }
     return render(request, 'about.html', context)
 
 

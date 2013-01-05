@@ -5,15 +5,11 @@
 {% block content %}
 
 <div class="container-fluid">
-  <hr>
   <div class="row-fluid">
-    <div class="span1">
-      <h2>
-        <i class="muted icon-bullhorn icon-large" style="padding-top: 10px; margin-left: 30px"></i>
+    <div class="span10 headline">
+      <h2 class="muted">
+        <i class="icon-coffee"></i> Meet the Team
       </h2>
-    </div>
-    <div class="span4">
-      <h2>Meet the Team<h2>
     </div>
   </div>
   <hr>
@@ -26,7 +22,7 @@
       <img src="{% gravatar_url user.email 175 %}" alt="{{ user.email }}" class="img-polaroid">
     </div>
     <div class="span7 well">
-      <h2>{{ user.get_full_name }}</h2>
+      <h3>{{ user.get_full_name }}</h3>
       <p class="lead muted">{{ user.get_profile.role }}</p>
       <p>{{ user.get_profile.description|safe }}</p>
       <div id="result_{{ user }}">
