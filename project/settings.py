@@ -161,7 +161,7 @@ AUTH_PROFILE_MODULE = 'blog.UserProfile'
 CKEDITOR_UPLOAD_PATH = "blog/media"
 CKEDITOR_CONFIGS = {
             'ckeditor': {
-                'toolbar': 'Basic',
+                'toolbar': 'Full',
             },
 }
 
