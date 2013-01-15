@@ -1,4 +1,3 @@
-my-blog
-=======
+Testerslab is a collaboration platform for blogging where we discuss topics related to software testing and more.
 
-wip
+http://testerslab.herokuapp.com/
