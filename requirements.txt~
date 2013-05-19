@@ -1,9 +1,0 @@
-Django==1.4.3
-Pillow==1.7.8
-South==0.7.6
-distribute==0.6.28
-dj-database-url==0.2.1
-django-ckeditor==3.6.2.1
-django-gravatar2==1.0.6
-django-taggit==0.9.3
-
