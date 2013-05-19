@@ -3,7 +3,7 @@ import os.path
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -164,3 +164,6 @@ CKEDITOR_CONFIGS = {
                 'toolbar': 'Full',
             },
 }
+
+import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()

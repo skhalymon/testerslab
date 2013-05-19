@@ -170,5 +170,5 @@ select{
    max-height: 40px;
    overflow: visible;
    padding-top: 0;
-   padding-bottom: 0;
+   padding-bottom: -5px;
 }
