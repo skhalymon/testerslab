@@ -107,7 +107,7 @@ def handle_keywords(keywords):
         keywords.startswith('"') and keywords.endswith('"')) or (
             keywords.startswith("'") and keywords.endswith("'")):
         return [keywords[1:-1]]
-    return set(t for t in keywords.split(" ") if len(t) >= 3)
+    return {t for t in keywords.split(" ") if len(t) >= 3}
 
 
 class LatestEntries(Feed):
